@@ -2,7 +2,7 @@ module.exports = {
     name: 'insulta',
     description: 'lasciati trasportare dagli insulti di ashura',
     execute(msg, args) {
-        msg.channel.send(`${args[0]} ${insulti[Math.floor(Math.random() * 4)]}`)
+        msg.channel.send(`${args[0]}${insulti[Math.floor(Math.random() * 4)]}`)
     }
 }
 const insulti = [

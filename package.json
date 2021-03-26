@@ -1,0 +1,15 @@
+{
+  "name": "ashuragay",
+  "version": "1.0.0",
+  "description": "Ashura è gay, e questo bot fa tutto quello che farebbe un ashura",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bomba",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0"
+  }
+}

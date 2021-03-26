@@ -30,6 +30,8 @@ bot.on('message', msg => {
             bot.commands.get('help').execute(msg);
         } else if (command === 'giorno') {
             bot.commands.get('giorno').execute(msg);
+        } else if (command === 'insulta') {
+            bot.commands.get('insulta').execute(msg, args);
         }
     } else return;
 });

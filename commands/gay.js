@@ -16,8 +16,10 @@ module.exports = {
                     break;
                 case 'cringe':
                     msg.channel.send('so tropp frisk e capit https://www.instagram.com/antoniospasu/', {
-                        files: [`./pictures/${Math.floor((Math.random() * 5) + 1)}.png`]
+                        files: [`./pictures/${Math.floor((Math.random() * 7) + 1)}.png`]
                     });
+                default:
+                    return;
             }
         }
     }

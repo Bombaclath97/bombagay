@@ -16,24 +16,25 @@ for (const file of commandFiles) {
 const prefix = process.env.PREFIX;
 
 bot.on('ready', () => {
-    bot.user.setActivity('Ashurahelp');
+    bot.user.setActivity('Bombagay > Ashuragay');
 });
 
 bot.on('message', msg => {
+    const userList = Array.from(bot.guilds.cache.get(msg.guild.id)
+    .members.cache
+    .filter(member => !member.user.bot && member.user.presence.status !== 'offline')
+    .values());
     if (!msg.author.bot && msg.content.startsWith(prefix)) {
         const args = msg.content.slice(prefix.length).split(" ");
         const command = args.shift().toLowerCase();
-
-        if (command === 'gay') {
-            bot.commands.get('gay').execute(msg, args);
-        } else if (command === 'help') {
-            bot.commands.get('help').execute(msg);
-        } else if (command === 'giorno') {
-            bot.commands.get('giorno').execute(msg);
-        } else if (command === 'insulta') {
-            bot.commands.get('insulta').execute(msg, args);
+        if (command === 'nudes') {
+            bot.commands.get('nudes').execute(msg);
+        } else if (command === 'citazione') {
+            bot.commands.get('citazione').execute(userList, msg, args);
         }
-    } else return;
+    } else 
+        return;
+    
 });
 
 bot.login(process.env.TOKEN);

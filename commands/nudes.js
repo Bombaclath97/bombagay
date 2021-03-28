@@ -7,6 +7,5 @@ module.exports = {
 }
 const nudes = ['8=====D\nUN SUCCOSO PESCE PIENO DI SBURNO',
     '(. Y .)\nUN PARO DI ZIZZE PIENE DI LATTE',
-    '(_(_|\n|_|_|\nUN BEL CULO PIENO DI FETILLO',
     '>o<\nUN BEL FETILLO PIENO DI CACCO'
 ];

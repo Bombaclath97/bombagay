@@ -124,11 +124,3 @@ const nomi = [
     'Antonio \"Black\" Dello Stretto',
     'Dodo dell\'Albero Azzurro'
 ];
-
-/*
-Introduzione (legata al personaggio famoso),
-Review del pene
-Review della capocchia
-Review delle palle 
-E infine review generale (x/y) 
-*/

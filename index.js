@@ -13,7 +13,7 @@ for (const file of commandFiles) {
     bot.commands.set(command.name, command);
 }
 
-const prefix = process.env.PREFIX;
+const prefix = process.env.PREFIX + ' ';
 
 bot.on('ready', () => {
     bot.user.setActivity('Bombagay > Ashuragay');
@@ -21,9 +21,9 @@ bot.on('ready', () => {
 
 bot.on('message', msg => {
     const userList = Array.from(bot.guilds.cache.get(msg.guild.id)
-    .members.cache
-    .filter(member => !member.user.bot && member.user.presence.status !== 'offline')
-    .values());
+        .members.cache
+        .filter(member => !member.user.bot)
+        .values());
     if (!msg.author.bot && msg.content.startsWith(prefix)) {
         const args = msg.content.slice(prefix.length).split(" ");
         const command = args.shift().toLowerCase();
@@ -31,10 +31,16 @@ bot.on('message', msg => {
             bot.commands.get('nudes').execute(msg);
         } else if (command === 'citazione') {
             bot.commands.get('citazione').execute(userList, msg, args);
+        } else if (command === 'complimenta') {
+            bot.commands.get('complimenta').execute(msg, args);
+        } else if (command === 'cockrating') {
+            bot.commands.get('cockrating').execute(msg);
+        } else if (command === 'pulisci') {
+            bot.commands.get('pulisci').execute(msg);
         }
-    } else 
+    } else
         return;
-    
+
 });
 
 bot.login(process.env.TOKEN);

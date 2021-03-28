@@ -2,8 +2,8 @@ module.exports = {
     name: 'citazione',
     description: 'citazione a caso',
     execute(onlineUsers, msg, args) {
-        if(args.length === 0) {
-            msg.channel.send(`Come disse ${onlineUsers[Math.floor(Math.random() * onlineUsers.length)]}, \"${citazioni[Math.floor(Math.random() * citazioni.length)]}\"`);
+        if (args.length === 0) {
+            msg.channel.send(`Come disse ${onlineUsers[Math.floor(Math.random() * onlineUsers.length)].user.username}, \"${citazioni[Math.floor(Math.random() * citazioni.length)]}\"`);
         }
     }
 }

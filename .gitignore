@@ -3,3 +3,4 @@
 coverage/
 npm-debug.log
 test/*.log
+node_modules/

@@ -37,6 +37,8 @@ bot.on('message', msg => {
             bot.commands.get('cockrating').execute(msg);
         } else if (command === 'pulisci') {
             bot.commands.get('pulisci').execute(msg);
+        } else if (command === 'haiku') {
+            bot.commands.get('haiku').execute(msg, args);
         }
     } else
         return;

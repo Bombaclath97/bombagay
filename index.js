@@ -39,6 +39,8 @@ bot.on('message', msg => {
             bot.commands.get('pulisci').execute(msg);
         } else if (command === 'haiku') {
             bot.commands.get('haiku').execute(msg, args);
+        } else if (command === 'insulta') {
+            bot.commands.get('insulta').execute(msg, args);
         }
     } else
         return;

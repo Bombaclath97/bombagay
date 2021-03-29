@@ -11,18 +11,18 @@ Per far partire il bot, devi avere installato NodeJS e npm sul sistema.
 ## Clona il bot e installa le dependencies
 
 Il bot necessita di: discord.js, canvas, fs, dotenv
-<code>
+```shell
 > git clone https://github.com/Bombaclath97/bombagay.git
 > cd bombagay
 > npm install
-</code>
+```
 
 ## Runna il bot
 
 Per runnare il bot:
-<code>
+```shell
 > node .
-</code>
+```
 
 # DISCLAIMER
 

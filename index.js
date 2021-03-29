@@ -38,6 +38,7 @@ bot.on('message', msg => {
         } else if (command === 'pulisci') {
             bot.commands.get('pulisci').execute(msg);
         } else if (command === 'haiku') {
+            msg.channel.send('Mmmmh, fammi pensare...');
             bot.commands.get('haiku').execute(msg, args);
         } else if (command === 'insulta') {
             bot.commands.get('insulta').execute(msg, args);

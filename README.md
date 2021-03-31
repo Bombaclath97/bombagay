@@ -11,12 +11,14 @@ Per far partire il bot, devi avere installato NodeJS e npm sul sistema.
 
 ### Clona il bot e installa le dependencies
 
-Il bot necessita di: discord.js, canvas, fs, dotenv
+Il bot necessita di: discord.js, canvas, fs, dotenv e Docker per poter essere deployato con semplicità
 
 ```shell
 > git clone https://github.com/Bombaclath97/bombagay.git
 > cd bombagay
-> npm install
+> touch .env
+> nano .env #Crea una variabile PREFIX per il prefisso e una variabile TOKEN per il token
+> docker build -t bombagay .
 ```
 
 ### Runna il bot
@@ -24,7 +26,7 @@ Il bot necessita di: discord.js, canvas, fs, dotenv
 Per runnare il bot:
 
 ```shell
-> node .
+> docker run -d bombagay
 ```
 
 ## DISCLAIMER

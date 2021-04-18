@@ -5,6 +5,7 @@ const fs = require('fs');
 dotenv.config();
 
 const bot = new Discord.Client();
+let channelID = new Map();
 
 bot.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
@@ -16,6 +17,7 @@ for (const file of commandFiles) {
 const prefix = process.env.PREFIX + ' ';
 
 bot.on('ready', () => {
+    console.log('Started');
     bot.user.setActivity('Bombagay > Ashuragay');
 });
 
@@ -24,7 +26,7 @@ bot.on('message', msg => {
         .members.cache
         .filter(member => !member.user.bot)
         .values());
-    if (!msg.author.bot && msg.content.startsWith(prefix)) {
+    if (!msg.author.bot && msg.content.startsWith(prefix) && (!channelID.has(msg.channel.guild.id) || channelID.get(msg.channel.guild.id) === msg.channel.id)) {
         const args = msg.content.slice(prefix.length).split(" ");
         const command = args.shift().toLowerCase();
         if (command === 'nudes') {
@@ -42,6 +44,11 @@ bot.on('message', msg => {
             bot.commands.get('haiku').execute(msg, args);
         } else if (command === 'insulta') {
             bot.commands.get('insulta').execute(msg, args);
+        } else if (command === 'scrivi') {
+            let id = bot.commands.get('scrivi').execute(msg, args);
+            if (id !== null) {
+                channelID.set(msg.channel.guild.id, id);
+            }
         }
     } else
         return;

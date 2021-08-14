@@ -8,18 +8,28 @@ module.exports = {
         if (args.length === 0) {
             msg.channel.send('Non posso scrivere una poesia a nessuno. Tagga a chi devo dedicare questo haiku.');
         } else {
-            haiku = `${firstFiveSyllVerse[Math.floor(Math.random() * firstFiveSyllVerse.length)]}\n${secondSevenSyllVerse[Math.floor(Math.random() * secondSevenSyllVerse.length)]}\n${thirdFiveSyllVerse[Math.floor(Math.random() * thirdFiveSyllVerse.length)]}`;
-            msg.channel.send(`Ok, ${args[0]}, ecco la poesia a te dedicata.\n${haiku}\n\n\n-Bomba`);
+            haiku = `${
+                firstFiveSyllVerse[Math.floor(Math.random() * firstFiveSyllVerse.length)]
+            }\n${
+                secondSevenSyllVerse[Math.floor(Math.random() * secondSevenSyllVerse.length)]
+            }\n${
+                thirdFiveSyllVerse[Math.floor(Math.random() * thirdFiveSyllVerse.length)]
+            }`;
+            msg.channel.send(`Ok, ${
+                args[0]
+            }, ecco la poesia a te dedicata.\n${haiku}\n\n\n-Bomba`);
             sendImage(msg, haiku);
         }
     }
 }
 
-const sendImage = async(msg, haiku) => {
+const sendImage = async (msg, haiku) => {
     const canvas = Canvas.createCanvas(1280, 720);
     const ctx = canvas.getContext('2d');
 
-    const background = await Canvas.loadImage(`pictures/haiku/${Math.floor((Math.random() * 4) + 1)}.jpg`);
+    const background = await Canvas.loadImage(`pictures/haiku/${
+        Math.floor((Math.random() * 4) + 1)
+    }.jpg`);
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
 

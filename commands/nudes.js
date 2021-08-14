@@ -2,10 +2,9 @@ module.exports = {
     name: 'nudes',
     description: 'manda dei nudes in ASCII',
     execute(msg) {
-        msg.channel.send(`Ecco a te, sporcaccione ;D\n${nudes[Math.floor(Math.random() * (nudes.length - 1))]}`)
+        msg.channel.send(`Ecco a te, sporcaccione ;D\n${
+            nudes[Math.floor(Math.random() * (nudes.length - 1))]
+        }`)
     }
 }
-const nudes = ['8=====D\nUN SUCCOSO PESCE PIENO DI SBURNO',
-    '(. Y .)\nUN PARO DI ZIZZE PIENE DI LATTE',
-    '>o<\nUN BEL FETILLO PIENO DI CACCO'
-];
+const nudes = ['8=====D\nUN SUCCOSO PESCE PIENO DI SBURNO', '(. Y .)\nUN PARO DI ZIZZE PIENE DI LATTE', '>o<\nUN BEL FETILLO PIENO DI CACCO'];

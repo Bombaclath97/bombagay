@@ -6,7 +6,9 @@ module.exports = {
         if (args.length === 0) {
             msg.reply(insulto);
         } else {
-            msg.channel.send(`${args[0]} ${insulto}`);
+            msg.channel.send(`${
+                args[0]
+            } ${insulto}`);
         }
     }
 }

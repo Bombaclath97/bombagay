@@ -25,12 +25,11 @@ bot.on('ready', () => {
 });
 
 bot.on('message', msg => {
-    const userList = Array.from(bot.guilds.cache.get(msg.guild.id)
-        .members.cache
-        .filter(member => !member.user.bot)
-        .values());
-    if (!msg.author.bot && msg.content.startsWith(prefix) && (!channelID.has(msg.channel.guild.id) || channelID.get(msg.channel.guild.id) === msg.channel.id)) {
-        console.log(`Received message with command. Content: => ${msg.content}`);
+    const userList = Array.from(bot.guilds.cache.get(msg.guild.id).members.cache.filter(member => !member.user.bot).values());
+    if (!msg.author.bot && msg.content.startsWith(prefix) && (! channelID.has(msg.channel.guild.id) || channelID.get(msg.channel.guild.id) === msg.channel.id)) {
+        console.log(`Received message with command. Content: => ${
+            msg.content
+        }`);
         const args = msg.content.slice(prefix.length).split(" ");
         const command = args.shift().toLowerCase();
 
@@ -58,8 +57,9 @@ bot.on('message', msg => {
         }
 
         console.log(`Command ${command} successfully executed!`);
-    } else
+    } else 
         return;
+    
 
 });
 

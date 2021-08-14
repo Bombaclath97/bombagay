@@ -7,9 +7,12 @@ dotenv.config();
 const bot = new Discord.Client();
 let channelID = new Map();
 
+console.log("Bot is starting.")
+
 bot.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
+    console.log(`Sourcing command "${file}"`);
     const command = require(`./commands/${file}`);
     bot.commands.set(command.name, command);
 }
@@ -17,8 +20,8 @@ for (const file of commandFiles) {
 const prefix = process.env.PREFIX + ' ';
 
 bot.on('ready', () => {
-    console.log('Started');
-    bot.user.setActivity('Bombagay > Ashuragay');
+    console.log('*** Successfully started bot! ***');
+    bot.user.setActivity('Forza Napoli regaz!');
 });
 
 bot.on('message', msg => {
@@ -27,8 +30,11 @@ bot.on('message', msg => {
         .filter(member => !member.user.bot)
         .values());
     if (!msg.author.bot && msg.content.startsWith(prefix) && (!channelID.has(msg.channel.guild.id) || channelID.get(msg.channel.guild.id) === msg.channel.id)) {
+        console.log(`Received message with command. Content: => ${msg.content}`);
         const args = msg.content.slice(prefix.length).split(" ");
         const command = args.shift().toLowerCase();
+
+        console.log(`Executing command ${command}...`);
         if (command === 'nudes') {
             bot.commands.get('nudes').execute(msg);
         } else if (command === 'citazione') {
@@ -50,6 +56,8 @@ bot.on('message', msg => {
                 channelID.set(msg.channel.guild.id, id);
             }
         }
+
+        console.log(`Command ${command} successfully executed!`);
     } else
         return;
 

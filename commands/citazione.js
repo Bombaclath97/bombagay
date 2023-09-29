@@ -12,5 +12,7 @@ module.exports = {
 
 const getCitazione = async (username) => {
     const response = await fetch(`http://${process.env.BACKEND_URL}/citazione?username=${username}`)
-    return await response.json()
+    const json = await response.json()
+    console.log(json)
+    return json
 }

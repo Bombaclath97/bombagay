@@ -9,7 +9,6 @@ module.exports = {
       getCitazione(username)
         .then((result) => msg.channel.send(`${result.citazione}`))
         .catch((reason) => console.log(reason));
-      console.log(result);
     }
   },
 };
